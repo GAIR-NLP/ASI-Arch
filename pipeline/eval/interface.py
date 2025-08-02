@@ -9,26 +9,26 @@ from .prompts import Debugger_input
 
 async def evaluation(name: str, motivation: str) -> bool:
     """
-    Evaluate training performance for a given experiment.
+    Evaluate Bayesian model performance for a given experiment.
     
     Args:
         name: Experiment name
         motivation: Experiment motivation
         
     Returns:
-        True if training successful, False otherwise
+        True if model sampling and evaluation successful, False otherwise
     """
-    success, error_msg = await run_training(name, motivation)
+    success, error_msg = await run_bayesian_sampling(name, motivation)
     if not success:
-        print(f"Training failed: {error_msg}")
+        print(f"Bayesian model sampling failed: {error_msg}")
         return False
-    save(name)
+    save_model(name)
     return True
 
 
-async def run_training(name: str, motivation: str) -> Tuple[bool, str]:
+async def run_bayesian_sampling(name: str, motivation: str) -> Tuple[bool, str]:
     """
-    Run training script with debugging retry mechanism.
+    Run Bayesian model sampling with debugging retry mechanism.
     
     Args:
         name: Experiment name
@@ -52,16 +52,17 @@ async def run_training(name: str, motivation: str) -> Tuple[bool, str]:
                 changes_made = debug_result.final_output.changes_made
                 print(f"Debug changes for {name}: {changes_made}")
 
-            train_result = await log_agent_run(
-                "trainer",
-                trainer,
-                f"""Please run the training script:
+            sampling_result = await log_agent_run(
+                "bayesian_sampler",
+                trainer,  # Reusing trainer agent but with new instructions
+                f"""Please run the Bayesian model sampling:
                 1. Execute bash {Config.BASH_SCRIPT} with parameter: {name}
-                2. Only return success=True if script exits with code 0"""
+                2. Check for MCMC convergence (R-hat < {Config.RHAT_THRESHOLD}, ESS > {Config.ESS_THRESHOLD})
+                3. Only return success=True if sampling converges and diagnostics pass"""
             )
             
-            if train_result.final_output.success:
-                print(f"Training successful for {name}")
+            if sampling_result.final_output.success:
+                print(f"Bayesian model sampling successful for {name}")
                 return True, ""
             else:
                 debug = True
@@ -74,37 +75,37 @@ async def run_training(name: str, motivation: str) -> Tuple[bool, str]:
 
                     with open(Config.DEBUG_FILE, 'r', encoding='utf-8') as f:
                         debug_content = f.read()
-                    previous_error = f"Training failed. Debug info:\n{debug_content}"
+                    previous_error = f"Sampling failed. Debug info:\n{debug_content}"
                 except Exception as e:
                     previous_error = (
-                        f"Training failed. Cannot read debug file {Config.DEBUG_FILE}: {str(e)}"
+                        f"Sampling failed. Cannot read debug file {Config.DEBUG_FILE}: {str(e)}"
                     )
                 
-                print(f"Training failed for {name} (attempt {attempt + 1}): {previous_error}")
+                print(f"Sampling failed for {name} (attempt {attempt + 1}): {previous_error}")
                 
                 # If this is the last attempt, return failure
                 if attempt == Config.MAX_DEBUG_ATTEMPT - 1:
                     return False, (
-                        f"Training failed after {Config.MAX_DEBUG_ATTEMPT} attempts. "
+                        f"Sampling failed after {Config.MAX_DEBUG_ATTEMPT} attempts. "
                         f"Final error: {previous_error}"
                     )
                 
                 continue
                 
     except Exception as e:
-        error_msg = f"Unexpected error during training: {str(e)}"
+        error_msg = f"Unexpected error during sampling: {str(e)}"
         print(error_msg)
         return False, error_msg
 
 
-def save(name: str) -> None:
+def save_model(name: str) -> None:
     """
-    Save source file content to code pool with given name.
+    Save PyMC model file content to model pool with given name.
     
     Args:
         name: File name to save as
     """
     with open(Config.SOURCE_FILE, "r", encoding='utf-8') as f:
         content = f.read()
-    with open(f"{Config.CODE_POOL}/{name}.py", "w", encoding='utf-8') as f:
+    with open(f"{Config.MODEL_POOL}/{name}.py", "w", encoding='utf-8') as f:
         f.write(content)

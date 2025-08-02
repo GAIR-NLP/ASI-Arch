@@ -1,79 +1,80 @@
 def Analyzer_input(name: str, result: str, motivation: str, ref_context: str) -> str:
     """
-    Creates a comprehensive prompt for experiment results analysis with emphasis
-    on balanced assessment and critical analysis of architectural modifications.
+    Creates a comprehensive prompt for Bayesian model results analysis with emphasis
+    on statistical rigor and critical assessment of probabilistic model innovations.
     """
-    return f"""# Analysis Request: Model {name}
+    return f"""# Bayesian Model Analysis Request: Model {name}
 
 ## Resources:
-- Results: `{result}`
-- Code implementation: Use read_code_file tool to examine the architecture
-- Design motivation: {motivation}
+- MCMC Diagnostics & Results: `{result}`
+- PyMC model implementation: Use read_pymc_model tool to examine the model
+- Statistical motivation: {motivation}
 
-
-## Related Experiments for Ablation Study:
+## Related Experiments for Comparative Analysis:
 {ref_context}
 
-**IMPORTANT:** The above related experiments represent either parent nodes (previous iterations that led to this design) or sibling nodes (alternative approaches explored from the same parent). Use these for ablation study analysis to understand:
-- What specific changes differentiate the current experiment from its relatives
-- Which architectural components are responsible for performance differences
-- Whether the modifications represent genuine improvements or trade-offs
+**IMPORTANT:** The above related experiments represent either parent models (previous iterations that led to this design) or sibling models (alternative approaches explored from the same parent). Use these for comparative analysis to understand:
+- What specific probabilistic changes differentiate the current model from its relatives
+- Which statistical components are responsible for performance differences
+- Whether the modifications represent genuine statistical improvements or trade-offs
+- How convergence and fit characteristics compare across related models
 
 ## Analysis Requirements:
 
-Please read the results, examine the code implementation using read_code_file tool, and analyze the design motivation. Your analysis must include:
+Please read the results, examine the PyMC implementation using read_pymc_model tool, and analyze the statistical motivation. Your analysis must include:
 
-1. **MOTIVATION AND DESIGN EVALUATION**
-   - Assess the theoretical soundness of the proposed architectural changes
-   - Evaluate whether the code implementation correctly reflects the design intention
-   - Identify any gaps between motivation and actual implementation
-   - Judge the plausibility of expected improvements based on the architectural changes
+1. **MODEL DESIGN EVALUATION**
+   - Assess the theoretical soundness of the proposed Bayesian model architecture
+   - Evaluate whether the PyMC implementation correctly reflects the statistical design intention
+   - Identify any gaps between theoretical motivation and actual probabilistic implementation
+   - Judge the plausibility of expected statistical improvements based on the model structure
+   - Consider prior specifications, likelihood choices, and model hierarchy appropriateness
 
-2. **EXPERIMENTAL RESULTS ANALYSIS WITH ABLATION STUDY**
-   - Summarize performance outcomes using task-descriptive language (e.g., "memory retention capability improved" rather than "Compress score increased to X")
-   - Compare results with baseline models using clear improvement/degradation statements
-   - **ABLATION ANALYSIS**: Compare with related experiments to identify:
-     * Which specific architectural changes caused performance differences
-     * Whether improvements are due to the intended modifications or other factors
-     * Trade-offs introduced by each architectural component
-   - Identify which cognitive capabilities were enhanced vs compromised
-   - Provide an overall assessment of whether the modifications achieved their intended goals
+2. **STATISTICAL RESULTS ANALYSIS**
+   - Examine MCMC convergence diagnostics (R-hat, ESS, divergences, energy statistics)
+   - Analyze model comparison metrics (WAIC, LOO, marginal likelihood if available)
+   - Assess predictive performance through appropriate statistical measures
+   - Evaluate posterior predictive check results for model adequacy
+   - Compare performance with baseline models and related experiments
+   - Identify which aspects of the model succeeded and which failed statistically
 
 3. **EXPECTATION VS REALITY COMPARISON**
-   - Analyze whether experimental results align with the stated motivation and expected outcomes
-   - Identify surprising results (both positive and negative) that weren't anticipated
-   - Assess the accuracy of the design hypothesis based on empirical evidence
-   - Determine if the architectural changes produced the predicted effects
-   - **CROSS-EXPERIMENT VALIDATION**: Check if similar modifications in related experiments produced consistent effects
+   - Compare the theoretical predictions from the statistical motivation with actual results
+   - Identify surprising outcomes in convergence, parameter estimates, or predictive performance
+   - Analyze whether the Bayesian design hypotheses were supported by the empirical evidence
+   - Assess if the probabilistic innovations achieved their intended statistical benefits
+   - Highlight discrepancies between expected and observed model behavior
 
 4. **THEORETICAL EXPLANATION WITH EVIDENCE**
-   - Provide mechanistic explanations for observed performance patterns, supported by:
-     * Specific code elements that caused the effects
-     * Mathematical reasoning linking architectural changes to performance outcomes
-     * Information-theoretic or computational arguments where applicable
-   - **COMPARATIVE ANALYSIS**: Explain why this approach outperformed or underperformed relative experiments
-   - For performance degradations: explain the precise mechanisms that undermined specific capabilities
-   - For improvements: identify the architectural features responsible for enhanced performance
-   - Connect theoretical predictions with empirical observations
+   - Provide mechanistic explanations for observed statistical results, supported by:
+     * Specific elements of the PyMC code that contributed to performance patterns
+     * Statistical theory connecting model design choices to empirical outcomes  
+     * Information-theoretic or computational arguments about model efficiency
+   - Explain the precise mechanisms behind convergence successes or failures
+   - Connect Bayesian methodology principles with the observed diagnostic results
+   - Analyze why certain parameters or model components performed better or worse than others
 
 5. **SYNTHESIS AND INSIGHTS**
-   - Summarize key lessons learned about this type of architectural modification
-   - **ABLATION INSIGHTS**: Based on comparison with related experiments, identify:
-     * Essential vs. redundant architectural components
-     * Optimal combinations of modifications
-     * Architectural decisions that should be preserved or discarded in future iterations
-   - Identify fundamental trade-offs revealed by the experiments
-   - Provide actionable insights for future architectural design decisions
-   - Suggest specific directions for addressing identified limitations
+   - Synthesize key lessons learned about this particular Bayesian modeling approach
+   - Identify fundamental trade-offs revealed between model complexity, interpretability, and performance
+   - Provide actionable insights for future Bayesian model development and innovation
+   - Suggest specific improvements for addressing any convergence or fit limitations identified
+   - Discuss broader implications for probabilistic modeling methodology in this domain
 
-**Critical Analysis Standards:**
-- Support all claims with specific evidence from code, results, or theoretical reasoning
-- Use ablation study methodology: isolate the impact of individual changes by comparing with related experiments
-- Be honest about failures and unexpected outcomes
-- Focus on understanding WHY results occurred, not just WHAT happened
-- Use capability-focused language rather than raw performance metrics
-- Maintain scientific rigor in explanations and avoid speculation without evidence
-- When analyzing improvements/degradations, always reference related experiments to validate conclusions
+## Analysis Standards:
+- Ground ALL statistical claims in specific evidence from the diagnostic results and model comparison metrics
+- Maintain intellectual honesty about convergence failures, poor model fit, or unexpected results
+- Focus on understanding WHY the statistical results occurred, not just describing WHAT happened
+- Use proper Bayesian statistical terminology and avoid frequentist misinterpretations
+- Provide actionable, evidence-based recommendations for model improvement
+- Consider both computational efficiency and statistical validity in your assessment
+- Acknowledge limitations and uncertainties in your analysis where appropriate
 
-Your analysis should be thorough, evidence-based, and provide actionable insights for architectural innovation through systematic ablation study.
-"""
+## Critical Thinking Guidelines:
+- Question whether observed improvements are statistically meaningful or due to random variation
+- Consider alternative explanations for unexpected results
+- Evaluate the generalizability of findings beyond this specific dataset
+- Assess the practical significance of statistical improvements
+- Be skeptical of overly complex models that may not provide meaningful benefits
+
+Your analysis should demonstrate deep understanding of both Bayesian statistical principles and practical probabilistic modeling challenges, providing insights that will advance the field of computational statistics."""

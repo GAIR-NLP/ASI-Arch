@@ -23,34 +23,34 @@ async def run_single_experiment() -> bool:
     pipeline_id = start_pipeline("experiment")
     
     try:
-        # Step 1: Program sampling
-        log_step("Program Sampling", "Start sampling program from database")
+        # Step 1: Model sampling
+        log_step("Model Sampling", "Start sampling model from database")
         context, parent = await program_sample()
-        log_info(f"Program sampling completed, context length: {len(str(context))}")
+        log_info(f"Model sampling completed, context length: {len(str(context))}")
         
-        # Step 2: Evolution
-        log_step("Program Evolution", "Start evolving new program")
+        # Step 2: Model Evolution
+        log_step("Bayesian Model Evolution", "Start evolving new Bayesian model")
         name, motivation = await evolve(context)
         if name == "Failed":
-            log_error("Program evolution failed")
+            log_error("Bayesian model evolution failed")
             end_pipeline(False, "Evolution failed")
             return False
-        log_info(f"Program evolution successful, generated program: {name}")
+        log_info(f"Bayesian model evolution successful, generated model: {name}")
         log_info(f"Evolution motivation: {motivation}")
         
-        # Step 3: Evaluation
-        log_step("Program Evaluation", f"Start evaluating program {name}")
+        # Step 3: Model Evaluation
+        log_step("Bayesian Model Evaluation", f"Start evaluating model {name}")
         success = await evaluation(name, motivation)
         if not success:
-            log_error(f"Program {name} evaluation failed")
+            log_error(f"Bayesian model {name} evaluation failed")
             end_pipeline(False, "Evaluation failed")
             return False
-        log_info(f"Program {name} evaluation successful")
+        log_info(f"Bayesian model {name} evaluation successful")
         
-        # Step 4: Analysis
-        log_step("Result Analysis", f"Start analyzing program {name} results")
+        # Step 4: Statistical Analysis
+        log_step("Statistical Result Analysis", f"Start analyzing model {name} results")
         result = await analyse(name, motivation, parent=parent)
-        log_info(f"Analysis completed, result: {result}")
+        log_info(f"Statistical analysis completed, result: {result}")
         
         # Step 5: Update database
         log_step("Database Update", "Update results to database")
@@ -58,8 +58,8 @@ async def run_single_experiment() -> bool:
         log_info("Database update completed")
         
         # Successfully complete pipeline
-        log_info("Experiment pipeline completed successfully")
-        end_pipeline(True, f"Experiment completed successfully, program: {name}, result: {result}")
+        log_info("Bayesian experiment pipeline completed successfully")
+        end_pipeline(True, f"Experiment completed successfully, model: {name}, result: {result}")
         return True
         
     except KeyboardInterrupt:
@@ -76,11 +76,11 @@ async def main():
     """Main function - continuous experiment execution."""
     set_tracing_disabled(True)
     
-    log_info("Starting continuous experiment pipeline...")
+    log_info("Starting continuous Bayesian model research pipeline...")
     
-    # Run plot.py first
-    log_info("Running plot scripts...")
-    log_info("Plot scripts completed")
+    # Run initial setup
+    log_info("Running initial setup...")
+    log_info("Setup completed")
     
     experiment_count = 0
     while True:
