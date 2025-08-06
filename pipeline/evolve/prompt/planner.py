@@ -1,155 +1,136 @@
 def Planner_input(context: str) -> str:
-    return f"""# Neural Architecture Evolution Mission
+    return f"""# Bayesian Model Evolution Mission
 
 ## EXPERIMENTAL CONTEXT & HISTORICAL EVIDENCE
 {context}
 
-## ARCHITECTURE EVOLUTION OBJECTIVE
-Your mission is to create a breakthrough neural architecture that addresses critical performance limitations identified through experimental evidence while integrating cutting-edge research insights. Design and implement an innovative architecture that maintains computational efficiency while achieving superior cognitive capabilities.
+## BAYESIAN MODEL EVOLUTION OBJECTIVE
+Your mission is to create a breakthrough Bayesian model that addresses critical statistical challenges identified through experimental evidence while integrating cutting-edge Bayesian methodology. Design and implement an innovative PyMC model that maintains computational efficiency while achieving superior predictive performance and interpretability.
 
 ## SYSTEMATIC EVOLUTION METHODOLOGY
 
-### PHASE 1: Evidence-Based Analysis Framework
+### PHASE 1: Evidence-Based Statistical Analysis Framework
 
-#### 1.1 Architecture Forensics
+#### 1.1 Model Forensics
 **Current State Assessment:**
-- Use `read_code_file` to examine existing architectural implementations
-- Map computational mechanisms, design patterns, and information flow
-- Identify core algorithmic approaches and their theoretical foundations
-- Document interface constraints and compatibility requirements
+- Use `read_pymc_model` to examine existing Bayesian model implementations
+- Map probabilistic mechanisms, prior specifications, and likelihood structures
+- Identify core statistical approaches and their theoretical foundations
+- Document data compatibility requirements and computational constraints
 
-#### 1.2 Performance Pattern Recognition  
+#### 1.2 Statistical Performance Pattern Recognition  
 **Historical Evidence Analysis:**
-- **Training Dynamics Diagnosis**: Extract optimization challenges from loss curves and convergence patterns
-- **Task-Specific Performance Profiling**: Identify capability gaps across cognitive domains (reasoning, memory, comprehension)
-- **Bottleneck Identification**: Pinpoint architectural elements limiting performance vs. those enabling strengths
-- **Cross-Architecture Comparison**: Analyze performance patterns across different experimental variants
+- **Convergence Diagnostics Analysis**: Extract MCMC challenges from R-hat, ESS, and trace plots
+- **Predictive Performance Profiling**: Identify model limitations across prediction tasks (point estimates, uncertainty quantification, out-of-sample performance)
+- **Bottleneck Identification**: Pinpoint model components limiting performance vs. those enabling strengths
+- **Cross-Model Comparison**: Analyze performance patterns across different Bayesian model variants
 
-#### 1.3 Research Integration Strategy
+#### 1.3 Bayesian Research Integration Strategy
 **Theoretical Foundation Building:**
-- Map research insights to observed performance limitations
-- Identify specific theoretical principles addressing architectural weaknesses  
-- Synthesize multiple research findings for comprehensive enhancement opportunities
-- Validate theoretical applicability through experimental evidence correlation
+- Map Bayesian research insights to observed performance limitations
+- Identify methodological gaps in current probabilistic modeling approaches
+- Connect theoretical advances to practical implementation opportunities
+- Synthesize domain-specific knowledge with general Bayesian principles
 
-### PHASE 2: Innovation Design Framework
+### PHASE 2: Innovative Model Architecture Design
 
-#### 2.1 Targeted Performance Engineering
-**Gap-Specific Solutions:**
-- Design architectural modifications targeting the most critical performance bottlenecks
-- Create mechanisms leveraging research insights for problematic capability domains
-- Balance multiple improvement objectives while maintaining architectural coherence
-- Ensure modifications address root causes rather than symptoms
+#### 2.1 Probabilistic Innovation Framework
+**Revolutionary Model Components:**
+- **Prior Innovation**: Design novel prior structures (hierarchical, adaptive, informative)
+- **Likelihood Engineering**: Develop sophisticated likelihood functions for complex data structures
+- **Parameter Transformation**: Implement advanced reparameterizations for better sampling
+- **Model Structure**: Create innovative hierarchical and mixture model architectures
 
-#### 2.2 Theoretical Grounding Protocol
-**Research-Driven Design:**
-- Ground all modifications in validated theoretical principles
-- Ensure mathematical and computational justification for proposed changes
-- Verify alignment with established research findings and best practices
-- Create novel combinations of insights for breakthrough potential
+#### 2.2 Computational Efficiency Optimization
+**Performance-Driven Design:**
+- **Sampling Strategy**: Optimize MCMC sampling approaches (NUTS, custom samplers)
+- **Vectorization**: Leverage PyMC's computational graph for efficient computation
+- **Memory Management**: Design memory-efficient model structures for large datasets
+- **Scalability**: Ensure model scales appropriately with data size and complexity
 
-#### 2.3 Efficiency Optimization Standards
-**Computational Constraints:**
-- Design using chunked computation patterns for scalability
-- Maintain sub-quadratic O(N log N) complexity throughout
-- Optimize memory usage through efficient processing strategies
-- Preserve performance gains within strict complexity bounds
+#### 2.3 Statistical Robustness Engineering
+**Reliability & Interpretability:**
+- **Model Checking**: Build in posterior predictive checking capabilities
+- **Sensitivity Analysis**: Design models robust to prior specification choices
+- **Identifiability**: Ensure parameter identifiability and interpretation clarity
+- **Diagnostic Integration**: Incorporate comprehensive convergence and fit diagnostics
 
-### PHASE 3: Implementation Excellence Protocol
+### PHASE 3: PyMC Implementation Requirements
 
-#### 3.1 Architecture Implementation Standards
-**Code Development Requirements:**
-- Use `write_code_file` to implement the complete evolved architecture
-- Preserve interface compatibility (forward function signatures, __init__ **kwargs)
-- Add new parameters with sensible defaults (enabled by default for new features)
-- Remove or refactor existing features to prevent architectural bloat
-- Implement proper causal masking and information flow constraints
+#### 3.1 Implementation Standards
+**Code Quality Expectations:**
+- **MANDATORY**: Use `write_pymc_model` to save your implementation
+- **Complete Model**: Implement full model including data preprocessing, model specification, and sampling
+- **Error Handling**: Include comprehensive error checking and validation
+- **Documentation**: Provide clear docstrings and inline comments
+- **Reproducibility**: Set random seeds and ensure reproducible results
 
-#### 3.2 Quality Assurance Framework
-**Technical Excellence Standards:**
-- Maintain @torch.compile decorators for computational optimization
-- Preserve chunked processing patterns throughout the architecture
-- Ensure causal constraints prevent any information leakage
-- Verify sub-quadratic complexity in all implemented operations
+#### 3.2 PyMC-Specific Requirements
+**Technical Implementation:**
+- **Model Context**: Always use `with pm.Model() as model:` structure
+- **Proper Distributions**: Use appropriate PyMC distribution families
+- **Sampling Configuration**: Configure sampling parameters for optimal performance
+- **Posterior Analysis**: Include posterior summary and diagnostic computations
+- **Visualization**: Generate trace plots and posterior predictive checks
 
-#### 3.3 Documentation and Justification
-**Innovation Communication:**
-- Create comprehensive motivation explaining evolution rationale
-- Connect experimental evidence to theoretical insights and implementation decisions
-- Justify expected improvements based on research findings
-- Provide clear reasoning for all architectural design choices
+#### 3.3 Data Integration Requirements
+**Dataset Compatibility:**
+- **Data Loading**: Use `load_dataset` tool to access experimental data
+- **EDA Integration**: Incorporate exploratory data analysis insights
+- **Preprocessing**: Handle missing data, outliers, and data transformations
+- **Validation**: Ensure model assumptions align with data characteristics
 
-## TECHNICAL IMPLEMENTATION SPECIFICATIONS
+### PHASE 4: Experimental Validation Framework
 
-### Critical Preservation Requirements
-- **Class Structure**: Maintain DeltaNet class name and inheritance hierarchy
-- **Interface Stability**: Preserve exact forward function signature compatibility
-- **Parameter Compatibility**: Support **kwargs in __init__ for extensibility
-- **Compilation Strategy**: Apply @torch.compile selectively to core computational functions only
-- **Dimensional Consistency**: Maintain d_model and core parameter structure
+#### 4.1 Model Performance Evaluation
+**Comprehensive Assessment:**
+- **Convergence Validation**: Ensure R-hat < 1.01, ESS > 400 for all parameters
+- **Predictive Performance**: Evaluate using cross-validation, holdout testing
+- **Model Comparison**: Compute WAIC, LOO for model selection
+- **Uncertainty Calibration**: Assess quality of uncertainty quantification
 
-### Implementation Quality Standards
-- **Chunked Processing**: All sequence operations must utilize fixed-size chunking
-- **Causal Integrity**: Implement strict causal constraints in attention-like mechanisms
-- **Complexity Bounds**: Ensure O(N log N) or better for all operations
-- **Memory Efficiency**: Design for optimal memory usage with chunked patterns
-- **Compilation Safety**: Avoid @torch.compile on utility functions to prevent conflicts
+#### 4.2 Statistical Significance Testing
+**Rigorous Evaluation:**
+- **Posterior Predictive Checks**: Validate model assumptions through PPC
+- **Prior Sensitivity**: Test robustness to prior specification choices
+- **Model Criticism**: Identify potential model inadequacies
+- **Comparative Analysis**: Benchmark against baseline and alternative models
 
-### MANDATORY: Tensor Operations Robustness
-- **einops.rearrange() Requirement**: Replace ALL .view()/.reshape() with einops.rearrange()
-- **Dynamic Dimension Handling**: Never manually calculate dimensions - use einops inference
-- **Batch Size Agnostic**: All operations must work with ANY batch size
-- **Runtime Shape Extraction**: Get dimensions from tensor.shape at runtime, not config
-- **Adaptive Processing**: Design for actual tensor dimensions, not predetermined values
+## EXECUTION PROTOCOL
 
-### Cross-Environment Robustness Standards
-- **Universal Compatibility**: Identical performance across training/evaluation/inference
-- **Memory Adaptation**: Graceful handling of varying memory constraints
-- **Shape Tolerance**: Robust operation with varying input dimensions
-- **Resource Awareness**: Automatic adaptation to available computational resources
+### Step 1: Data & Context Analysis
+1. Load and analyze the dataset using EDA tools
+2. Examine existing model implementations and performance
+3. Identify specific statistical challenges and opportunities
 
-## INNOVATION TARGET DOMAINS
+### Step 2: Model Design & Innovation
+1. Design novel Bayesian model architecture based on analysis
+2. Integrate cutting-edge Bayesian methodology
+3. Ensure computational efficiency and statistical rigor
 
-### Primary Capability Enhancement Areas
-- **Extended Context Memory**: Revolutionary long-range dependency handling
-- **Multi-Scale Information Integration**: Enhanced temporal and semantic scale processing
-- **Adaptive Computational Mechanisms**: Dynamic adjustment based on input characteristics
-- **Efficiency-Performance Optimization**: Superior capabilities within complexity constraints
-- **Cognitive Task Performance**: Breakthrough improvements in reasoning and comprehension
-- **Environmental Robustness**: Consistent performance across execution contexts
-- **Resource Efficiency**: Optimal adaptation to computational constraints
+### Step 3: PyMC Implementation
+1. Implement complete PyMC model with all components
+2. Include proper error handling and validation
+3. Configure optimal sampling parameters
 
-## DELIVERABLE SPECIFICATIONS
+### Step 4: Validation & Analysis
+1. Run model and collect convergence diagnostics
+2. Perform posterior predictive checking
+3. Compute model comparison metrics
 
-### PRIMARY DELIVERABLE: Complete Implementation
-**Architecture Code (MANDATORY):**
-- **Implementation Tool**: Use `write_code_file` to create complete working architecture
-- **Innovation Quality**: Embed revolutionary architectural advances in functional code
-- **Constraint Compliance**: Preserve class structure, parameters, and interface compatibility
-- **Technical Standards**: Maintain sub-quadratic complexity, chunked processing, causal constraints
-- **Robustness Implementation**: Use einops.rearrange() universally, ensure batch size independence
+## SUCCESS CRITERIA
+- **Innovation**: Novel Bayesian modeling approach not seen in historical experiments
+- **Performance**: Superior predictive performance and uncertainty quantification
+- **Convergence**: All parameters achieve R-hat < 1.01, ESS > 400
+- **Interpretability**: Clear parameter interpretation and model understanding
+- **Computational Efficiency**: Reasonable sampling time and memory usage
+- **Statistical Rigor**: Proper Bayesian workflow with validation and checking
 
-### SECONDARY DELIVERABLE: Design Documentation
-**Architecture Description:**
-- **Naming Convention**: `delta_net_[innovation_identifier]` reflecting core innovations
-- **Motivation Document**: Comprehensive explanation including:
-  - Key architectural innovations and their implementation
-  - Research insights applied and expected performance improvements
-  - Design choice justification based on experimental evidence
-  - Connection between theory, evidence, and implementation
+## CRITICAL REMINDERS
+- **IMPLEMENT FIRST**: Use `write_pymc_model` to save your model implementation
+- **COMPLETE MODEL**: Include data preprocessing, model specification, sampling, and analysis
+- **BAYESIAN WORKFLOW**: Follow proper Bayesian methodology throughout
+- **INNOVATION REQUIRED**: Create genuinely novel approaches, not minor variations
+- **DOCUMENTATION**: Provide clear explanations of model design choices
 
-## SUCCESS CRITERIA FRAMEWORK
-
-### Critical Success Factors (Ranked by Priority)
-1. **Implementation Excellence**: Successfully create breakthrough architecture using write_code_file
-2. **Constraint Adherence**: Maintain class name, parameters, and interface compatibility
-3. **Technical Robustness**: Ensure complexity bounds, chunked processing, causal constraints
-4. **Universal Compatibility**: Use einops.rearrange() universally, support any batch size
-5. **Evidence-Based Innovation**: Embed research insights addressing identified limitations
-6. **Performance Targeting**: Implement solutions for specific weakness areas identified
-
-## MISSION EMPHASIS
-Your **PRIMARY OBJECTIVE** is implementing breakthrough architectural code that demonstrates robust performance across all execution environments and batch configurations. Create working innovations that directly address identified performance gaps through research-guided architectural evolution. Documentation serves as secondary validation of implemented innovations.
-
-Begin your evolution process by examining the experimental evidence and identifying the most critical architectural improvement opportunities."""
-
+Your revolutionary Bayesian model should push the boundaries of statistical modeling while maintaining rigorous statistical principles and computational efficiency."""

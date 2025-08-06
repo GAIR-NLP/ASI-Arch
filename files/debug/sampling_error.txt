@@ -1,0 +1,13 @@
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [alpha, beta, sigma]
+/Users/twiecki/projects/ASI-Arch/.pixi/envs/default/lib/python3.13/site-packages/pymc/step_methods/hmc/quadpotential.py:316: RuntimeWarning: overflow encountered in dot
+  return 0.5 * np.dot(x, v_out)
+/Users/twiecki/projects/ASI-Arch/.pixi/envs/default/lib/python3.13/site-packages/pymc/step_methods/hmc/quadpotential.py:316: RuntimeWarning: overflow encountered in dot
+  return 0.5 * np.dot(x, v_out)
+/Users/twiecki/projects/ASI-Arch/.pixi/envs/default/lib/python3.13/site-packages/pymc/step_methods/hmc/quadpotential.py:316: RuntimeWarning: overflow encountered in dot
+  return 0.5 * np.dot(x, v_out)
+Sampling 4 chains for 1_000 tune and 2_000 draw iterations (4_000 + 8_000 draws total) took 1 seconds.
+/Users/twiecki/projects/ASI-Arch/.pixi/envs/default/lib/python3.13/site-packages/arviz/stats/stats.py:1667: UserWarning: For one or more samples the posterior variance of the log predictive densities exceeds 0.4. This could be indication of WAIC starting to fail. 
+See http://arxiv.org/abs/1507.04544 for details
+  warnings.warn(
